@@ -1,0 +1,79 @@
+title: The magical world of the JavaScript `arguments` object
+subtitle: Shit I Didn't Know...
+tags: js shit-i-didn't-know
+format: md
+published: no
+content: >
+
+So, I've known for a long time that the `arguments` object that is available in a `function() {}` is 
+a bit odd, but until recently I didn't know how odd.
+
+Last weekend, I was up in the northeast visiting friends and taking a little break from
+the south. As I waited at the airport for my flight home, I was browsing [Hacker News](http://news.ycombinator.com)
+for anything interesting, waiting for my zone to be called for boarding. I ended up at [this guys blog]
+(http://sergimansilla.com/blog/extending-js-inline-unit-tests/) where he was talking about adding
+contract-like tests to javascript using some extension macros thanks to [sweetjs](http://sweetjs.org/).
+
+Soon, I was on the plane and with nothing really to do, and my chromebook in my carry-on, I decided to do some
+expermentations with some different vanilla-js syntaxes for doing the same thing. Nothing serious, just wanted to
+play around.
+
+However, I quickly stumbled onto something that I kind of blew my mind. Here is a extremely simplified version
+of the behavior:
+
+```js
+var calcResult = function(fn, negateResult) {
+  if(negateResult) {
+    var capturedArguments = arguments;
+    fn = function() { return -capturedArguments[0].apply(this, arguments); }
+  }
+  return fn;
+}
+```
+
+Now, it's not the greatest example of idomatic javascript that I've ever written, but in my defense I was
+hurltling through the air at 500mph in a box. I invoked it something like this:
+
+```js
+var myFunc = calcResult(function(x,y) { return x + y; });
+myFunc(5,5);
+```
+  
+And I prompty got a `RangeError: Maximum call stack size exceeded` error... "Huh?" my former self though. I opened
+up the developer console, and added a breakpoint inside the . Shockingly &ndash; at least to me at the time &ndash;
+was that `capturedArugments[0]` did not point at the function I originally had passed in... Instead it pointed
+at *itself*?
+
+*Mind-blown*
+
+So I had a feeling that I had stumbled onto something that I should have been aware of a long time ago. I wrote
+another function, something simplier, to try to understand.
+
+```js
+var strangeAdd = function(x,y) {
+  arguments[0] = 10;
+  arguments[1] = 5;
+  return x + y;
+}
+```
+
+And no matter what numbers that I fed into the function, the result would always come back `15`. In fact, no
+matter what data-type or object I fed in, I would always get `15`. Even more specifically, the only way 
+that I would *not* get back `15`, was when I invoked the function with less than two arguments, eg.
+`strangeAdd(); // NaN`.
+
+Then I tried something else.
+
+```js
+var strangeAdd = function(x,y) {
+  x = 10;
+  y = 5;
+  return arguments[0] + arguments[1];
+}
+
+```
+
+And lo-and-behold, the same result. It seems that the `arguments` object and the variables of the function are
+so how the same. Change one and it effects the other.
+
+By this time, I was off the plane.
