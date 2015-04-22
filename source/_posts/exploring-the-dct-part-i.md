@@ -8,7 +8,7 @@ Let's take a closer look at how a DCT is practically used, within the scope of J
 
 ## Example input block
 
-The first thing that happens, is the image is broken down into 8&#215;8 pixel blocks. An example block might look something like this:
+The first thing that happens is the image is broken down into 8&times;8 pixel blocks. An example block might look something like this:
 
 ```coffeescript
 input = [
@@ -35,11 +35,16 @@ center = (input) -> (val-128 for val in input)
 
 Then, we perform the DCT. It's formal definition looks something like this:
 
+<figure>
+<figcaption>The DCT</figcaption>
 <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{150}&space;G_{u,v}=&space;\frac{1}{4}&space;\alpha(u)&space;\alpha(v)&space;\sum_{x=0}^{7}&space;\sum_{y=0}^{7}&space;g_{x,y}&space;\cos&space;\left&space;[&space;\frac{(2x&plus;1)u\pi}{16}&space;\right&space;]&space;\cos&space;\left&space;[&space;\frac{(2y&plus;1)v\pi}{16}&space;\right&space;]" target="_blank"><img src="http://latex.codecogs.com/png.latex?\dpi{150}&space;G_{u,v}=&space;\frac{1}{4}&space;\alpha(u)&space;\alpha(v)&space;\sum_{x=0}^{7}&space;\sum_{y=0}^{7}&space;g_{x,y}&space;\cos&space;\left&space;[&space;\frac{(2x&plus;1)u\pi}{16}&space;\right&space;]&space;\cos&space;\left&space;[&space;\frac{(2y&plus;1)v\pi}{16}&space;\right&space;]" title="G_{u,v}= \frac{1}{4} \alpha(u) \alpha(v) \sum_{x=0}^{7} \sum_{y=0}^{7} g_{x,y} \cos \left [ \frac{(2x+1)u\pi}{16} \right ] \cos \left [ \frac{(2y+1)v\pi}{16} \right ]" /></a>
+</figure>
 
 Where:
 
+<figure>
 <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{120}&space;\alpha(u)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt{2}},&space;&&space;\text{&space;if&space;}&space;u=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}" target="_blank"><img src="http://latex.codecogs.com/png.latex?\dpi{120}&space;\alpha(u)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt{2}},&space;&&space;\text{&space;if&space;}&space;u=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}" title="\alpha(u) = \begin{cases} \frac{1}{\sqrt{2}}, & \text{ if } u=0\\ 1, & \text{ otherwise } \end{cases}" /></a>
+</figure>
 
 Which can be expressed in CoffeeScript as:
 
@@ -90,6 +95,6 @@ result = quantize(dct2(center(input)), quantizationMatrix)
 <p data-height="507" data-theme-id="0" data-slug-hash="cpnbs" data-default-tab="result" data-user="32bitkid" class='codepen'>See the Pen <a href='http://codepen.io/32bitkid/pen/cpnbs/'>Discrete Cosine Transformation</a> by James Holmes (<a href='http://codepen.io/32bitkid'>@32bitkid</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-> Note that the first table in the demo is editable. Feel free to play around with the numbers and observe the resulting changes to the resulting frequencies!
+> Note: that the first table in the demo is editable. Feel free to play around with the numbers and observe the resulting changes to the resulting frequencies!
 
 ## Next up... Decompression
