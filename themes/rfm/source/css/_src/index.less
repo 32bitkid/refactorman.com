@@ -1,0 +1,90 @@
+@import (inline) "reset.css";
+@import "highlight.less";
+@import "article.less";
+
+@import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+@font-serif: Cardo, serif;
+@font-sans:  Montserrat, sans-serif;
+@font-mono:  'Source Code Pro', monospace;
+
+@color-fore: black;
+@color-mix-80:  mix(@color-fore, @color-back, 80%);
+@color-mix:  mix(@color-fore, @color-back);
+@color-mix-20:  mix(@color-fore, @color-back, 20%);
+@color-back: white;
+
+@color-accent: hsv(200, 60%, 64%);
+
+:root {
+  font-family: @font-serif;
+  font-size: 14pt;
+  line-height: 1.48;
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6 {
+  font-family: @font-sans;
+}
+.h1,.h2,.h3,.h4,.h5,.h6 { font-weight: bold; }
+.h1 { font-size: 3rem; }
+.h2 { font-size: 1.5rem; }
+
+body {
+  padding: 0 1rem 0 2.5em;
+  max-width: 75ch;
+  margin: 1rem auto;
+}
+
+article > header {
+  font-family: @font-sans;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  font-size: 0.7rem;
+  > * { flex-grow: 1; flex-basis: 0; text-align: center; }
+  > :first-child { text-align: left; }
+  > :last-child { text-align: right; }
+  .title { font-weight: bold; }
+}
+
+:link, :visited {
+  color: @color-accent;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.post-list {
+  > li {
+    box-sizing: border-box;
+    padding: 1rem;
+    min-height: 20vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border: 1px solid @color-mix-20;
+    margin-bottom: 1rem;
+  }
+  font-family: @font-sans;
+  a { font-weight: 700; }
+  time { font-size: 0.7rem; }
+}
+
+#refactorman-logo { width: 100%; height: 100px; font-family: @font-sans; }
+#refactorman-logo #title {
+  fill: @color-fore;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: -3pt;
+}
+
+#refactorman-logo #author {
+  fill: @color-fore;
+  font-size: 32px;
+  fill: @color-mix-20;
+}
+
+

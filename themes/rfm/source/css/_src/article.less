@@ -1,0 +1,42 @@
+article {
+  h1 { &:extend(.h1); }
+  h2 { &:extend(.h2); }
+  h3 { &:extend(.h3); }
+  h4 { &:extend(.h4); }
+  h5 { &:extend(.h5); }
+  h6 { &:extend(.h6); }
+
+  h1,h2,h3,h4,h5,h6,p,.highlight { margin-bottom: 1rem; }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1 {
+    padding-top: 25vh;
+    padding-bottom: 5vh;
+    background-color: @color-accent;
+    color: @color-back;
+    margin-left: -50vw;
+    padding-left: 50vw;
+  }
+
+  h2 {
+    position: relative;
+    counter-increment: subsection;
+
+    a[rel='bookmark'] {
+      text-decoration: none;
+      color: @color-fore;
+    }
+
+    a[rel='bookmark']::before {
+      font-weight: normal;
+      content: counter(subsection) ".";
+      position: absolute;
+      right: 100%;
+      color: @color-mix-20;
+      padding-right: 0.5ch;
+    }
+  }
+}

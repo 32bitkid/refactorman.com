@@ -1,0 +1,25 @@
+{
+  "name": "refactorman.com",
+  "version": "0.0.1",
+  "private": true,
+  "hexo": {
+    "version": "3.0.1"
+  },
+  "scripts": {
+    "css": "cat 'themes/rfm/source/css/_src/index.less' | lessc --include-path='themes/rfm/source/css/_src/' - | autoprefixer -b 'last 2 versions' | cleancss -s > themes/rfm/source/css/style.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^5.1.1",
+    "clean-css": "^3.2.2",
+    "hexo": "^3.0.0",
+    "hexo-generator-archive": "^0.1.0",
+    "hexo-generator-category": "^0.1.0",
+    "hexo-generator-index": "^0.1.0",
+    "hexo-generator-tag": "^0.1.0",
+    "hexo-renderer-ejs": "^0.1.0",
+    "hexo-renderer-marked": "^0.2.4",
+    "hexo-renderer-stylus": "^0.2.0",
+    "hexo-server": "^0.1.2",
+    "less": "^2.5.0"
+  }
+}
