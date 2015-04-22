@@ -71,3 +71,12 @@ deploy:
   host: refactorman.com
   user: kryat
   root: ~/refactorman.com/public
+
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: false
+  smartLists: true
+  smartypants: true
