@@ -67,4 +67,7 @@ theme: rfm
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: refactorman.com
+  user: kryat
+  root: ~/refactorman.com/public
