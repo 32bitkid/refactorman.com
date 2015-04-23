@@ -12,23 +12,36 @@
 @highlight-blue: #6699cc;
 @highlight-purple: #cc99cc;
 
-article > pre, article > .highlight {
-  @font-size: 0.85rem;
-  @line-height-abs: @font-size * 1.5;
 
-  font-family: @font-mono;
+article code { font-family: @font-mono; }
+
+article > .highlight {
+  @font-size: 0.85rem;
+  @line-height-abs: @font-size * 1.48;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   background-color: @highlight-background;
-  color: @highlight-foreground;
-  padding: 0.5rem 1rem;
-  font-size: @font-size;
-  line-height: @line-height-abs;
-  overflow-x: auto;
+
+  > table {
+    font-size: @font-size;
+    line-height: @line-height-abs;
+  }
+
+  pre {
+    font-family: @font-mono;
+    color: @highlight-foreground;
+    white-space: pre-wrap;
+    background-color: @highlight-background;
+  }
+
+  //overflow-x: auto;
 
   .gutter pre {
     font-size: 0.65rem;
     text-align: right;
-    padding-right: 20px;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
     color: mix(@highlight-foreground, @highlight-background, 25%);
   }
 }

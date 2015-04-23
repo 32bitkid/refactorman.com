@@ -1,4 +1,5 @@
 article {
+  counter-reset: figure citation;
   position: relative;
 
   h1 { &:extend(.h1); }
@@ -49,12 +50,12 @@ article {
     }
 
     p a::before {
-      content: counter(citation) ":\00A0" attr(href);
+      content: counter(citation) ".\00A0" attr(href);
     }
 
     figure > figcaption { counter-increment: figure; }
     figure > figcaption::before {
-      content: "Figure "  counter(figure) ": ";
+      content: "Figure "  counter(figure) ".\00A0";
     }
   }
 
