@@ -9,7 +9,9 @@ article {
   h5 { &:extend(.h5); }
   h6 { &:extend(.h6); }
 
-  h1,h2,h3,h4,h5,h6,p,figure { margin-bottom: 1rem; }
+  h1,h2,h3,h4,h5,h6,p,figure,ol,ul { margin-bottom: 1rem; }
+  hr { margin-top: 2rem; margin-bottom: 2rem; }
+  li { line-height: 2rem; }
 
   p { text-align: justify; }
 
@@ -25,21 +27,24 @@ article {
     }
   }
 
+  ol, ul { padding-left: 2rem; }
+  ul { list-style-type: disc; }
+
   @media screen and (min-width: 768px) {
 
-    h1,h2,h3,h4,h5,h6,figure { clear: right; }
+    h1,h2,h3,h4,h5,h6,figure,hr { clear: right; }
 
-    p,figure { margin-right: 10rem; }
+    p,figure,ul,ol { margin-right: 10rem; }
     blockquote { color: @color-mix; }
 
-    p a { counter-increment: citation; }
-    p a::after {
+    a:not([href^='#']) { counter-increment: citation; }
+    a:not([href^='#'])::after {
       font-size: 0.65rem;
       vertical-align: super;
       content: counter(citation);
     }
 
-    p a::before, p strong, figure > figcaption {
+    a:not([href^='#'])::before, strong, figure > figcaption, .pull {
       float: right;
       width: 9rem;
       margin-right: -10rem;
@@ -47,9 +52,11 @@ article {
       font-size: 0.65rem;
       margin-bottom: 1rem;
       text-align: left;
+      clear: right;
+      line-height: 1.48;
     }
 
-    p a::before {
+    a:not([href^='#'])::before {
       content: counter(citation) ".\00A0" attr(href);
     }
 
@@ -62,8 +69,10 @@ article {
   @media screen and (max-width: 767px) {
     figure > figcaption {
       text-align: center;
-      font-family: @font-sans;
-      color: @color-mix-80;
+      font-style: italic;
+      font-size: 0.65rem;
+      margin-bottom: 0.5rem;
+      color: @color-mix;
     }
   }
 
@@ -82,14 +91,14 @@ article {
     position: relative;
     counter-increment: subsection;
 
-    a[rel='bookmark'] {
-      text-decoration: none;
+    a[href^="#"] {
+      &:hover { text-decoration: none; }
       color: @color-fore;
     }
 
-    a[rel='bookmark']::before {
+    a[href^="#"]::before {
       font-weight: normal;
-      content: counter(subsection) ".";
+      content: "#";
       position: absolute;
       right: 100%;
       color: @color-mix-20;

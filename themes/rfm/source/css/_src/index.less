@@ -39,7 +39,9 @@ body {
   margin: 1rem auto;
 }
 
-article > header {
+em { font-style: italic; }
+
+.front-matter {
   font-family: @font-sans;
   display: flex;
   justify-content: space-between;
@@ -89,4 +91,42 @@ article > header {
   fill: @color-mix-20;
 }
 
+figure.image {
+  text-align: center;
+}
+
+.signal-graph {
+  table {
+    th, td { text-align: center; }
+    th {
+      color: @color-mix-80;
+      font-size: 0.7rem;
+      padding: 0 0.5rem;
+    }
+    > thead th {
+      border-bottom: 1px solid @color-fore;
+    }
+    > tbody {
+      > tr > td {
+        padding: 0 0.5rem;
+        font-size: 1rem;
+      }
+      > tr:nth-child(3n) > * {
+        border-bottom: 1px dashed @color-fore;
+      }
+    }
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: @color-fore;
+  }
+
+  .axis .tick text {
+    fill: @color-fore;
+    font-family: @font-serif;
+    font-size: 0.65rem;
+  }
+}
 

@@ -20,22 +20,26 @@ article > .highlight {
   @line-height-abs: @font-size * 1.48;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-
   background-color: @highlight-background;
+
 
   > table {
     font-size: @font-size;
     line-height: @line-height-abs;
+    table-layout: fixed;
+    width: 100%;
   }
 
   pre {
     font-family: @font-mono;
     color: @highlight-foreground;
-    white-space: pre-wrap;
     background-color: @highlight-background;
   }
 
   //overflow-x: auto;
+
+  .gutter { width: 8ch; overflow: hidden; }
+  .code { overflow: auto; }
 
   .gutter pre {
     font-size: 0.65rem;
