@@ -1,6 +1,5 @@
 title: Exploring the Discrete Cosine Transform
-date: 2014-04-03
-updated: 2015-04-28
+date: 2015-04-28
 ---
 A [discrete cosine transform (DCT)](http://en.wikipedia.org/wiki/Discrete_cosine_transform) expresses a finite sequence of data points in terms of a sum of cosine functions oscillating at different frequencies.
 
