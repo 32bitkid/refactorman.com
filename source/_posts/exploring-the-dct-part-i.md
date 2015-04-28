@@ -90,7 +90,7 @@ These JavaScript implementations are na&iuml;ve implementations, i.e. that are q
 For reference, there are also several high performance variations and approximations, that reduce the number of mathematical operations required, at the cost of readability. For example:
 
 * The LLM DCT: [
-Practical fast 1-D DCT algorithms with 11 multiplications](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=266596&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel2%2F805%2F6677%2F00266596.pdf%3Farnumber%3D266596)
+Practical fast 1-D DCT algorithms with 11 multiplications](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=266596)
 * The AAN DCT: [A Fast DCT-SQ Scheme for Images](http://search.ieice.org/bin/summary.php?id=e71-e_11_1095).
 
 ## [So, what does it do?](#So,_what_does_it_do?)
