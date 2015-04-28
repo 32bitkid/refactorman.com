@@ -1,8 +1,7 @@
 title: Exploring the Discrete Cosine Transform
-date: 2014-08-03
+date: 2014-04-03
+updated: 2015-04-28
 ---
-<script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-
 A [discrete cosine transform (DCT)](http://en.wikipedia.org/wiki/Discrete_cosine_transform) expresses a finite sequence of data points in terms of a sum of cosine functions oscillating at different frequencies.
 
 The DCT is used extensively in lossy audio and image compression. It can be found in MP3 audio compression, JPEG image compression, and MPEG-1/2 video compression. Let's take a closer look the fundamentals of how a DCT is practically used.
@@ -87,17 +86,19 @@ var idct = function(input) {
 }
 {% endcodeblock %}
 
-The above JavaScript implmenations are na&iuml;ve implementations that are quite computationally expensive and unoptimized. They *are*, however, easy to reason about. For reference, there are also several high performance variations and approximations, that reduce the number of mathematical operations required, at the cost of readability. For example:
+These JavaScript implementations are na&iuml;ve implementations, i.e. that are quite computationally expensive and unoptimized. They *are*, however, relatively easy to reason about.
+
+For reference, there are also several high performance variations and approximations, that reduce the number of mathematical operations required, at the cost of readability. For example:
 
 * The LLM DCT: [
 Practical fast 1-D DCT algorithms with 11 multiplications](http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=266596&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel2%2F805%2F6677%2F00266596.pdf%3Farnumber%3D266596)
 * The AAN DCT: [A Fast DCT-SQ Scheme for Images](http://search.ieice.org/bin/summary.php?id=e71-e_11_1095).
 
-## [So, what does it do.](#So,_what_does_it_do-)
+## [So, what does it do?](#So,_what_does_it_do?)
 
-Let's start by looking at a one-dimensional example.
+I'm going to start by looking at a simpler one-dimensional example.
 
-First, let's start with a signal. Let's use a simple ramp, like this:
+We will begin with a signal, a linear ramp, like this:
 
 <figure class="signal-graph" id="signal-viz-1">
 <figcaption>The input signal</figcaption>
@@ -105,7 +106,7 @@ First, let's start with a signal. Let's use a simple ramp, like this:
 
 The input signal has been sampled 8 times, each sample is *independent* from it's neighboring samples; i.e. it represents the value of the signal at a specific point in space or time. A DCT transforms these discrete data points into a sum of cosine functions, each oscillating at a *different frequencies* and at *different magnitudes*.
 
-Specifically, the DCT will transform this this of *8 samples* into *8 coefficients*. Each coefficient will multiply a specific cosine frequency -- altering that magnitude of that function and its corresponding impact on the reconstructed signal.
+Specifically, the DCT will transform this of *8 samples* into *8 coefficients*. Each coefficient will multiply a specific cosine frequency -- altering that magnitude of that function and its corresponding impact on the reconstructed signal.
 
 ***
 
@@ -116,7 +117,7 @@ Let's look at the formal definition of the forward and inverse one-dimensional D
 <img src="http://latex.codecogs.com/svg.latex?\\&space;G_{k}=&space;\alpha(k)&space;\sqrt{\frac{2}{N}}&space;\sum_{n=0}^{N-1}&space;g_{n}&space;\cos&space;\left&space;[&space;\frac{\pi}{N}&space;\left&space;(n&space;&plus;&space;\frac{1}{2}&space;\right&space;)&space;k&space;\right&space;]&space;\\&space;\\&space;\\&space;g_{n}&space;=&space;\sqrt{\frac{2}{N}}&space;\sum_{k=0}^{N-1}&space;\alpha(k)&space;G_{k}&space;\cos&space;\left&space;[&space;\frac{\pi}{N}&space;\left&space;(n&space;&plus;&space;\frac{1}{2}&space;\right&space;)&space;k&space;\right&space;]&space;\\&space;\\&space;\\&space;\text{Where:}&space;\\&space;\\&space;\alpha(x)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt&space;{2}&space;},&space;&&space;\text{&space;if&space;}&space;x=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}&space;\\&space;\\&space;g&space;\text{&space;is&space;the&space;input&space;}\\&space;\\&space;G&space;\text{&space;is&space;the&space;DCT&space;output&space;}\\&space;\\&space;N&space;\text{&space;is&space;the&space;number&space;of&space;samples&space;being&space;transformed}\\" title="\\ G_{k}= \alpha(k) \sqrt{\frac{2}{N}} \sum_{n=0}^{N-1} g_{n} \cos \left [ \frac{\pi}{N} \left (n &plus; \frac{1}{2} \right ) k \right ] \\ \\ \\ g_{n} = \sqrt{\frac{2}{N}} \sum_{k=0}^{N-1} \alpha(k) G_{k} \cos \left [ \frac{\pi}{N} \left (n &plus; \frac{1}{2} \right ) k \right ] \\ \\ \\ \text{Where:} \\ \\ \alpha(x) = \begin{cases} \frac{1}{\sqrt {2} }, & \text{ if } x=0\\ 1, & \text{ otherwise } \end{cases} \\ \\ g \text{ is the input }\\ \\ G \text{ is the DCT output }\\ \\ N \text{ is the number of samples being transformed}\\" />
 </figure>
 
-Let's first focus on the forward DCT transformation. We can translate the forward equation into the following JavaScript:
+First, we can focus just on the forward DCT transformation. We can translate the forward equation into the following JavaScript:
 
 {% codeblock A na&iuml;ve implementation of a forward 1D DCT.  %}
   var dct1d = function(signal) {
@@ -136,7 +137,7 @@ Let's first focus on the forward DCT transformation. We can translate the forwar
   };
 {% endcodeblock %}
 
-This function will take an array of samples and return an array of *equal length* DCT coefficients. Let's use this function to transform our input signal. Like this:
+This function will take an array of samples and return an array of *equal length* DCT coefficients. Now, we can use this function to transform our input signal. Something like:
 
 ```js
 var coefficients = dct1d([8,16,24,32,40,48,56,64]);
@@ -152,7 +153,7 @@ The resulting array will be 8 elements long and will look like this:
 
 Now that we have our set of coefficients, how do we transform it back into the original signal? For that, we use the *inverse* DCT.
 
-Let's translate the equation into JavaScript:
+Again, we can express this in JavaScript as:
 
 {% codeblock A na&iuml;ve implementation of a inverse 1D DCT.  %}
   var idct1d = function(dct) {
@@ -184,11 +185,11 @@ Again, this function returns the same number of samples as our coefficients. And
   <figcaption>The reconstructed signal</figcaption>
 </figure>
 
-## [Okay, but why?](#Okay,_but_why?)
+## [Okay, but *why?*](#Okay,_but_why?)
 
 Up to now, you may have noticed that each transformation has been of equivalent length; e.g., *n* samples become *n* coefficients and vice versa. So, how is this actually useful for compression?
 
-Let's look again at the coefficients of our compressed signal:
+Look again at the coefficients of our compressed signal:
 
 <figure class="signal-graph" id="signal-viz-4">
   <figcaption>The computed DCT coefficients</figcaption>
@@ -202,7 +203,7 @@ If our initial signal was comprised of white noise, i.e. static, there would be 
 
 ***
 
-Now, let's use [quantization](http://en.wikipedia.org/wiki/Quantization_(image_processing) to compress our coefficients, which are currently real numbers, into a smaller range of integers. As a simplistic implementation, let's divide each coefficient by `50` and truncate the result.
+We use can [quantization](http://en.wikipedia.org/wiki/Quantization_(image_processing) to squash our coefficients, which are currently real numbers, into a smaller range of integers. As a simplistic implementation, we can divide each coefficient by `50` and truncate the result. **The choice of `50` is a completely arbitrary selection on my part, it can be any number really for our purposes.**
 
 ```js
 var quantized = coefficients.map(function(v) { return v/50|0; });
@@ -220,9 +221,9 @@ This is *fundamentally* how the DCT is used for audio and visual compression.
 
 If you have a keen eye then you may have noticed something interesting during the quantization step in the last section. We *truncated* our real values into integers, i.e. we threw away some data.
 
-While that made the data more compressible, what effect does that have on our reconstructed signal? Let's take a look.
+While that made the data more compressible, what effect does that have on our reconstructed signal? Let's find out!
 
-First, let's de-quantize our coefficients:
+First, we need to de-quantize our coefficients:
 
 ```js
 var dequantized = quantized.map(function(v) { return v*50; });
@@ -244,11 +245,13 @@ var decompressedSignal = idct1d(dequantized);
 
 At first glance, the reconstructed signal appears *similar*. However, on closer inspection, you can see they are actually different. That is because we threw away some of the smaller, high-frequency coefficients that were subtly adjusting the reconstructed signal. Without those frequencies, the new signal drifts away from the original.
 
-Let's look at them together on the same chart:
+However, compare them together on the same chart:
 
 <figure class="signal-graph" id="signal-viz-8">
   <figcaption>Both the original signal and reconstructed decompressed signal.</figcaption>
 </figure>
+
+Not quite the same, but close -- and that's the idea. We can use the DCT, to transform our set into a more *compressible* set data that can be reconstructed into a *similar* signal, but not identical. We have, however, *lost* some of the original data in the process; that is what is meant by "lossy" compression.
 
 By adjusting the quantization value (or using a quantization matrix), one can control the balance between compressibility and signal fidelity of the transformation.
 
@@ -260,4 +263,10 @@ Let's explore deeper into the DCT:
 * Take it to the Next Dimension: Look at some 2D versions of the DCT.
 * Indiana Jones: Explore some visual implications/artifacts of compression.
 
+## [More Reading](#More)
+
+* [Discrete Cosine Transform](https://unix4lyfe.org/dct-1d/)
+* [What is 'energy compaction' in simple terms?](http://dsp.stackexchange.com/questions/17326/what-is-energy-compaction-in-simple-terms)
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
 <script src='{% asset_path index.js.txt %}' type="text/javascript"></script>
