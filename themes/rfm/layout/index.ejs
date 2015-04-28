@@ -10,7 +10,10 @@
 <ol class="post-list">
 <% page.posts.each(function(post){ %>
 	<li>
-		<%- link_to(post.path, post.title) %>
+		<div class="summary">
+			<%- link_to(post.path, post.title) %>
+			<%- post.excerpt %>
+		</div>
 		<time datetime='<%= date_xml(post.date) %>'><%= date(post.date) %></time>
 	</li>
 <% }) %>

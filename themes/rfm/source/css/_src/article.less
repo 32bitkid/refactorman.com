@@ -37,14 +37,14 @@ article {
     p,figure,ul,ol { margin-right: 10rem; }
     blockquote { color: @color-mix; }
 
-    a:not([href^='#']) { counter-increment: citation; }
-    a:not([href^='#'])::after {
+    a[href]:not([href^='#']) { counter-increment: citation; }
+    a[href]:not([href^='#'])::after {
       font-size: 0.65rem;
       vertical-align: super;
       content: counter(citation);
     }
 
-    a:not([href^='#'])::before, strong, figure > figcaption, .pull {
+    a[href]:not([href^='#'])::before, strong, figure > figcaption, .pull {
       float: right;
       width: 9rem;
       margin-right: -10rem;
@@ -56,7 +56,7 @@ article {
       line-height: 1.48;
     }
 
-    a:not([href^='#'])::before {
+    a[href]:not([href^='#'])::before {
       content: counter(citation) ".\00A0" attr(href);
     }
 
@@ -71,9 +71,15 @@ article {
       text-align: center;
       font-style: italic;
       font-size: 0.65rem;
+      padding-bottom: 0.5rem;
       margin-bottom: 0.5rem;
       color: @color-mix;
+      border-bottom: 1px solid @color-mix;
+      width: 66%;
+      margin-left: auto; margin-right: auto;
     }
+
+    figure > table { margin-left: auto; margin-right: auto; }
   }
 
   img { max-width: 100%; }
