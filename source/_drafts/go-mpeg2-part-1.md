@@ -1,10 +1,9 @@
 title: Let's Write a MPEG-2 Decoder in Go
-tags: go-mpeg2 golang
-format: md
-published: no
-content: >
-
-Looking back over my career so far as a programmer, there have been a lot of things that I'm really proud of working on/figuring out. However, one thing &ndash; to me &ndash; easily stands out above the rest as an "achievement". While it is not the "best" thing I've ever engineered &ndash; hell, if I'm going to be honest, it really wasn't even that *good*, really &ndash; it was one of those projects where when I finally got it working, I felt *amazing*. I wrote a MPEG-2 frame decoder... in managed C#... from scratch... 
+tags:
+	-go-mpeg2
+	-golang
+---
+Looking back over my career so far as a programmer, there have been a lot of things that I'm really proud of working on/figuring out. However, one thing &ndash; to me &ndash; easily stands out above the rest as an "achievement". While it is not the "best" thing I've ever engineered &ndash; hell, if I'm going to be honest, it really wasn't even that *good*, really &ndash; it was one of those projects where when I finally got it working, I felt *amazing*. I wrote a MPEG-2 frame decoder... in managed C#... from scratch...
 
 Now, a lot of people that I tell that to, their first reaction is "...uhh, why?" If present-me were to interrogate earlier-me, I would probably ask the same question!
 
@@ -14,13 +13,13 @@ I was hired on as a graphic designer, but it quickly leaked out that I had some 
 
 The project I ended up on needed to browse and extract frames of video from multiple HD video cameras. The cameras were connected to their hosts via firewire and streamed MPEG-2 in a transport stream. The hosts networked together and needed to simultaneously capture, synchronize and edit video from multiple sources. We hand rolled most of our stack, piecing together what we could with duct-tape and spit &ndash; quite literally sometimes &ndash; to try to construct a working prototype. I can't remember *why* exactly, but it was decided that I would write a C# MPEG-2 decoder to grab frames of video out of the streams. I am pretty sure that I said in a meeting one day: "How hard can it be?". I did not know enough to know how much I did not know...
 
-I spent the next few weeks burying myself in the ISO spec for MPEG-2, trying to comprehend and translate the algorithms and patterns described. I had no formal training in design patterns or even a solid mathematical background &ndash; I was an art student! I poured through every resource I could find, trying to understand and reconstruct just a single frame of from the raw source that came off the camera. 
+I spent the next few weeks burying myself in the ISO spec for MPEG-2, trying to comprehend and translate the algorithms and patterns described. I had no formal training in design patterns or even a solid mathematical background &ndash; I was an art student! I poured through every resource I could find, trying to understand and reconstruct just a single frame of from the raw source that came off the camera.
 
 Finally hunched at my laptop in my tiny apartment on one Saturday afternoon, working on a weekend when I probably should have been out living, I compiled and ran my code and out popped an image: It worked! I felt like a god.
 
 In retrospect, the code was hideous, poorly formed and barely readable. But in the process, I had learned about discrete cosine transformations, motion prediction, Huffman codes, bit stream reading, pumps and sinks. I had been introduced to a ton of other interesting concepts and how they applied not to image and video compression, but to software development in general.
 
-I had a crash course in writing high performance C# code and trying to find nasty `unsafe` bugs and memory leaks. But perhaps the more lasting impact to myself as a developer, was introduced to TDD and it started to "make sense". And while it was not until much until much later in my career to be fully on the TDD boat, I can look back at that experience as a huge push in the right direction, away from being a "cowboy" to being a "team member". 
+I had a crash course in writing high performance C# code and trying to find nasty `unsafe` bugs and memory leaks. But perhaps the more lasting impact to myself as a developer, was introduced to TDD and it started to "make sense". And while it was not until much until much later in my career to be fully on the TDD boat, I can look back at that experience as a huge push in the right direction, away from being a "cowboy" to being a "team member".
 
 I have long since gotten fired from that job, and moved onto other things, honed my craft and become a much better programmer and person than I was back in those days. But that one project has always stuck with me as being pretty massive personal achievement.
 

@@ -1,9 +1,7 @@
-title: Using `::before` and `::after` elements
-subtitle: Shit I Didn't Know...
-tags: css shit-i-didnt-know
-format: md
-published: no
-content: >
+title: 'Fun with pseudo-elements'
+tags:
+  - css
+---
 
 I've known for quite a while that, you could inject content into
 HTML elements using CSS pseudo-elements &ndash; `::before` and
@@ -40,11 +38,11 @@ a { position: relative; }
 a[href^=http\:\/\/]:hover:after {
   /* Display the href attribute */
   content: attr(href);
-  
+
   /* Put it in a box */
   display: block;
   position: absolute;
-  padding: 1ex; 
+  padding: 1ex;
   border: 1px solid #666;
   background-color: #ccc;
 }
@@ -81,14 +79,14 @@ var greetings = document.querySelectorAll(".greet");
 forEach(greetings, changeToHello);
 ```
 
-It almost shadow-dom-esque. It's nice not having to know the internals 
-of how the element is going to consume the `data-` attribute, one can 
+It almost shadow-dom-esque. It's nice not having to know the internals
+of how the element is going to consume the `data-` attribute, one can
 just update the elements' state and be done.
 
 There is one unimplemented feature that would also help make this
 technique a lot more powerful: setting the "type" of the `attr()` value. The
 [spec defines](https://developer.mozilla.org/en-US/docs/Web/CSS/attr) such
-behavior but, as of writing this, no browsers implement it.
+behavior but, as of writing this no browsers implement it.
 
 ```css
 .hasIcon:before {
@@ -96,6 +94,5 @@ behavior but, as of writing this, no browsers implement it.
 }
 ```
 
-This would return the value of the `data-icon-url` attribute, but intrept 
-it's value as a url rather than just a string. It would be pretty useful... 
-But alas not functional right now.
+This would return the value of the `data-icon-url` attribute, but intrept
+it's value as a url rather than just a string. It would be pretty useful...

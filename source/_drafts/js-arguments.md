@@ -1,23 +1,21 @@
-title: The magical world of the JavaScript `arguments` object
-tags: js shit-i-didnt-know
-format: md
-published: no
-content: >
+title: The magical world of the JavaScript arguments object
+tags:
+  - js
+---
 
-So, I've known for a long time that the `arguments` object that is available in a function is 
+So, I've known for a long time that the `arguments` object that is available in a function is
 a bit "odd", but until recently I didn't realize how odd.
 
 Last weekend, I was up in the northeast visiting friends and taking a little break from
 the south. As I waited at the airport for my flight home, I was browsing [Hacker News](http://news.ycombinator.com)
-for anything interesting, waiting for my zone to be called for boarding. I ended up at [this guys blog]
-(http://sergimansilla.com/blog/extending-js-inline-unit-tests/) where he was talking about adding
-contract-like tests to javascript using some extension macros thanks to [sweetjs](http://sweetjs.org/).
+for anything interesting, waiting for my zone to be called for boarding. I ended up at [this guys blog](http://sergimansilla.com/blog/extending-js-inline-unit-tests/) where he was talking about adding
+contract-like tests to javascript using some extension macros thanks to [Sweet.js](http://sweetjs.org/).
 
 Soon, I was on the plane and with nothing really to do and my chromebook in my carry-on I decided to do some
 expermentations with some different vanilla-js syntaxes for doing the same thing. Nothing serious, just wanted to
 play around.
 
-However, I quickly stumbled onto something that I kind of blew my mind. 
+However, I quickly stumbled onto something that I kind of blew my mind.
 
 Here is a extremely simplified version what I did:
 
@@ -73,7 +71,7 @@ var strangeAdd = function(x,y) {
 ```
 
 And no matter what numbers that I fed into the function, the result would always come back `15`. In fact, no
-matter what data-type or object I fed in, I would always get `15`. Even more specifically, the only way 
+matter what data-type or object I fed in, I would always get `15`. Even more specifically, the only way
 that I would *not* get back `15`, was when I invoked the function with less than two arguments, eg.
 `strangeAdd(); // NaN`.
 
@@ -91,7 +89,7 @@ var strangeAdd = function(x,y) {
 And lo-and-behold, the same result. It appeared like the `arguments` object
 and the variables of the function are *linked*. Change one and it effects the other.
 
-By this time, I was off the plane and was able to reconnect the internets &ndash; my 
+By this time, I was off the plane and was able to reconnect the internets &ndash; my
 source of information, and was able to find that this is a fairly well documented
 "feature" of the `arguments` object. I just had never heard of it.
 
