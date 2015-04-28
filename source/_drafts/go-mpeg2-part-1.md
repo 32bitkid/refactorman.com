@@ -1,4 +1,5 @@
 title: Let's Write a MPEG-2 Decoder in Go
+date: Nov 5, 2013
 tags:
 	-go-mpeg2
 	-golang

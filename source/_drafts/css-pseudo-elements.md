@@ -1,6 +1,7 @@
 title: 'Fun with pseudo-elements'
 tags:
   - css
+date: Nov 29, 2013
 ---
 
 I've known for quite a while that, you could inject content into

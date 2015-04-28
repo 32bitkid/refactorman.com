@@ -1,4 +1,5 @@
 title: The magical world of the JavaScript arguments object
+date: Nov 29, 2013
 tags:
   - js
 ---
