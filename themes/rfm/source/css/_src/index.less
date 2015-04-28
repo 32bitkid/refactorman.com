@@ -1,6 +1,4 @@
 @import (inline) "reset.css";
-@import "highlight.less";
-@import "article.less";
 
 @import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
@@ -20,10 +18,14 @@
 
 :root {
   font-family: @font-serif;
-  font-size: 14pt;
+  font-size: 13pt;
   line-height: 1.48;
   color: @color-fore;
   background-color: @color-back;
+
+  @media screen and (max-width: 767px) {
+    font-size: 10.5pt;
+  }
 }
 
 .h1,.h2,.h3,.h4,.h5,.h6 {
@@ -137,3 +139,5 @@ figure.image {
   }
 }
 
+@import "highlight.less";
+@import "article.less";
