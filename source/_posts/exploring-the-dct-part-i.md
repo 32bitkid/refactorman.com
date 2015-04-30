@@ -14,20 +14,19 @@ The DCT is used extensively in lossy audio and image compression. It can be foun
 
 For JPEG and MPEG video, the formal definition of an 8&times;8 DCT:
 
-<figure class="image">
-<figcaption>A 8&times;8 DCT-II</figcaption>
+{% figure A 8&times;8 DCT-II class:image %}
 <img src="http://latex.codecogs.com/svg.latex?\dpi{150}&space;G_{u,v}=&space;\frac{1}{4}&space;\alpha(u)&space;\alpha(v)&space;\sum_{x=0}^{7}&space;\sum_{y=0}^{7}&space;g_{x,y}&space;\cos&space;\left&space;[&space;\frac{(2x&plus;1)u\pi}{16}&space;\right&space;]&space;\cos&space;\left&space;[&space;\frac{(2y&plus;1)v\pi}{16}&space;\right&space;]" title="G_{u,v}= \frac{1}{4} \alpha(u) \alpha(v) \sum_{x=0}^{7} \sum_{y=0}^{7} g_{x,y} \cos \left [ \frac{(2x+1)u\pi}{16} \right ] \cos \left [ \frac{(2y+1)v\pi}{16} \right ]" />
-</figure>
+{% endfigure %}
 
 Where:
 
-<figure class="image">
+{% figure class="image" %}
 <img src="http://latex.codecogs.com/svg.latex?\dpi{150}&space;\alpha(u)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt{2}},&space;&&space;\text{&space;if&space;}&space;u=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}" title="\alpha(u) = \begin{cases} \frac{1}{\sqrt{2}}, & \text{ if } u=0\\ 1, & \text{ otherwise } \end{cases}" />
-</figure>
+{% endfigure %}
 
 Implemented in JavaScript as:
 
-{% codeblock A na&iuml;ve DCT implementation in JavaScript lang:js %}
+{% code A na&iuml;ve DCT implementation in JavaScript lang:js %}
 var dct = function(input) {
   var output = [], v, u, x, y, sum, val, au, av;
   for (v=0; v<8; v++) {
@@ -48,20 +47,19 @@ var dct = function(input) {
   }
   return output;
 }
-{% endcodeblock %}
+{% endcode %}
 
 And the corresponding *inverse* DCT:
 
-<figure class="image">
-<figcaption>The DCT-III, also known as the inverse DCT</figcaption>
+{% figure The DCT-III, also known as the inverse DCT class="image" %}
 <img src="http://latex.codecogs.com/svg.latex?\dpi{150}&space;f_{x,y}&space;=&space;\frac{1}{4}&space;\sum_{u=0}^{7}&space;\sum_{u=0}^{7}&space;\alpha(u)&space;\alpha(v)&space;F_{u,v}&space;\cos&space;\left&space;[&space;\frac{(2x&plus;1)u\pi}{16}&space;\right&space;]&space;\cos&space;\left&space;[&space;\frac{(2y&plus;1)v\pi}{16}&space;\right&space;]" title="f_{x,y} = \frac{1}{4} \sum_{u=0}^{7} \sum_{u=0}^{7} \alpha(u) \alpha(v) F_{u,v} \cos \left [ \frac{(2x+1)u\pi}{16} \right ] \cos \left [ \frac{(2y+1)v\pi}{16} \right ]" />
-</figure>
+{% endfigure %}
 
 Where:
 
-<figure class="image">
+{% figure class="image" %}
 <img src="http://latex.codecogs.com/svg.latex?\dpi{150}&space;\alpha(u)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt{2}},&space;&&space;\text{&space;if&space;}&space;u=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}" title="\alpha(u) = \begin{cases} \frac{1}{\sqrt{2}}, & \text{ if } u=0\\ 1, & \text{ otherwise } \end{cases}" />
-</figure>
+{% endfigure %}
 
 Also implemented in JavaScript as:
 
@@ -104,9 +102,8 @@ I'm going to start by looking at a simpler one-dimensional example.
 
 We will begin with a signal, a linear ramp, like this:
 
-<figure class="signal-graph" id="signal-viz-1">
-<figcaption>The input signal</figcaption>
-</figure>
+{% figure The input signal class="signal-graph" id="signal-viz-1" %}
+{% endfigure %}
 
 The input signal has been sampled 8 times, each sample is *independent* from it's neighboring samples; i.e. it represents the value of the signal at a specific point in space or time. A DCT transforms these discrete data points into a sum of cosine functions, each oscillating at a *different frequencies* and at *different magnitudes*.
 
@@ -116,10 +113,9 @@ Specifically, the DCT will transform this of *8 samples* into *8 coefficients*. 
 
 Let's look at the formal definition of the forward and inverse one-dimensional DCT that we will be using.
 
-<figure class="image">
-<figcaption>A 1-D DCT and iDCT</figcaption>
+{% figure A 1-D DCT and iDCT class="image" %}
 <img src="http://latex.codecogs.com/svg.latex?\\&space;G_{k}=&space;\alpha(k)&space;\sqrt{\frac{2}{N}}&space;\sum_{n=0}^{N-1}&space;g_{n}&space;\cos&space;\left&space;[&space;\frac{\pi}{N}&space;\left&space;(n&space;&plus;&space;\frac{1}{2}&space;\right&space;)&space;k&space;\right&space;]&space;\\&space;\\&space;\\&space;g_{n}&space;=&space;\sqrt{\frac{2}{N}}&space;\sum_{k=0}^{N-1}&space;\alpha(k)&space;G_{k}&space;\cos&space;\left&space;[&space;\frac{\pi}{N}&space;\left&space;(n&space;&plus;&space;\frac{1}{2}&space;\right&space;)&space;k&space;\right&space;]&space;\\&space;\\&space;\\&space;\text{Where:}&space;\\&space;\\&space;\alpha(x)&space;=&space;\begin{cases}&space;\frac{1}{\sqrt&space;{2}&space;},&space;&&space;\text{&space;if&space;}&space;x=0\\&space;1,&space;&&space;\text{&space;otherwise&space;}&space;\end{cases}&space;\\&space;\\&space;g&space;\text{&space;is&space;the&space;input&space;}\\&space;\\&space;G&space;\text{&space;is&space;the&space;DCT&space;output&space;}\\&space;\\&space;N&space;\text{&space;is&space;the&space;number&space;of&space;samples&space;being&space;transformed}\\" title="\\ G_{k}= \alpha(k) \sqrt{\frac{2}{N}} \sum_{n=0}^{N-1} g_{n} \cos \left [ \frac{\pi}{N} \left (n &plus; \frac{1}{2} \right ) k \right ] \\ \\ \\ g_{n} = \sqrt{\frac{2}{N}} \sum_{k=0}^{N-1} \alpha(k) G_{k} \cos \left [ \frac{\pi}{N} \left (n &plus; \frac{1}{2} \right ) k \right ] \\ \\ \\ \text{Where:} \\ \\ \alpha(x) = \begin{cases} \frac{1}{\sqrt {2} }, & \text{ if } x=0\\ 1, & \text{ otherwise } \end{cases} \\ \\ g \text{ is the input }\\ \\ G \text{ is the DCT output }\\ \\ N \text{ is the number of samples being transformed}\\" />
-</figure>
+{% endfigure %}
 
 First, we can focus just on the forward DCT transformation. We can translate the forward equation into the following JavaScript:
 
@@ -149,9 +145,8 @@ var coefficients = dct1d([8,16,24,32,40,48,56,64]);
 
 The resulting array will be 8 elements long and will look like this:
 
-<figure class="signal-graph" id="signal-viz-2">
-  <figcaption>The computed DCT coefficients</figcaption>
-</figure>
+{% figure The computed DCT coefficients class="signal-graph" id="signal-viz-2" %}
+{% endfigure %}
 
 ## [Reconstructing the signal](#Reconstructing_the_signal)
 
@@ -185,9 +180,9 @@ var reconstructedSignal = idct1d(coefficients);
 
 Again, this function returns the same number of samples as our coefficients. And aside from some small floating-point rounding errors, the reconstructed signal is identical to the original signal.
 
-<figure class="signal-graph" id="signal-viz-3">
-  <figcaption>The reconstructed signal</figcaption>
-</figure>
+{% figure The reconstructed signal class="signal-graph" id="signal-viz-3" %}
+
+{% endfigure %}
 
 ## [Okay, but *why?*](#Okay,_but_why?)
 
@@ -195,9 +190,9 @@ Up to now, you may have noticed that each transformation has been of equivalent 
 
 Look again at the coefficients of our compressed signal:
 
-<figure class="signal-graph" id="signal-viz-4">
-  <figcaption>The computed DCT coefficients</figcaption>
-</figure>
+{% figure The computed DCT coefficients class="signal-graph" id="signal-viz-4" %}
+
+{% endfigure %}
 
 Notice, that the *first two* coefficients have a relatively large magnitude, while the rest are fairly close to zero. This is because our source signal was a simple ramp: it's value increased by `8` units at each sample.
 
@@ -213,9 +208,8 @@ We use can [quantization](http://en.wikipedia.org/wiki/Quantization_(image_proce
 var quantized = coefficients.map(function(v) { return v/50|0; });
 ```
 
-<figure class="signal-graph" id="signal-viz-5">
-  <figcaption>The quantized coefficients.</figcaption>
-</figure>
+{% figure The quantized coefficients. class="signal-graph" id="signal-viz-5" %}
+{% endfigure %}
 
 After quantization, we now only have two coefficients that have values, and a long run of values of zero. This set can be [run-length encoded](http://en.wikipedia.org/wiki/Run-length_encoding) much smaller than the original set of samples.
 
@@ -230,30 +224,30 @@ While that made the data more compressible, what effect does that have on our re
 First, we need to de-quantize our coefficients:
 
 ```js
-var dequantized = quantized.map(function(v) { return v*50; });
+var dequantized = quantized.map(function(v) {
+  return v*50;
+});
 ```
 
-<figure class="signal-graph" id="signal-viz-6">
-  <figcaption>The dequantized coefficients, notice they are *not* the same as the coefficients we calculated before due to the truncation</figcaption>
-</figure>
+{% figure The dequantized coefficients. class="signal-graph" id="signal-viz-6" %}
+{% endfigure %}
 
-And then run the inverse DCT:
+Notice they are *not* the same as the coefficients we calculated before, due to the truncation. Now, let's run the inverse DCT and see what signal we get back:
 
 ```js
 var decompressedSignal = idct1d(dequantized);
 ```
 
-<figure class="signal-graph" id="signal-viz-7">
-  <figcaption>The reconstructed decompressed signal.</figcaption>
-</figure>
+{% figure The reconstructed decompressed signal. class="signal-graph" id="signal-viz-7" %}
+{% endfigure %}
 
 At first glance, the reconstructed signal appears *similar*. However, on closer inspection, you can see they are actually different. That is because we threw away some of the smaller, high-frequency coefficients that were subtly adjusting the reconstructed signal. Without those frequencies, the new signal drifts away from the original.
 
 However, compare them together on the same chart:
 
-<figure class="signal-graph" id="signal-viz-8">
+{% figure class="signal-graph" id="signal-viz-8" %}
   <figcaption>Both the original signal and reconstructed decompressed signal.</figcaption>
-</figure>
+{% endfigure %}
 
 Not quite the same, but close -- and that's the idea. We can use the DCT, to transform our set into a more *compressible* set data that can be reconstructed into a *similar* signal, but not identical. We have, however, *lost* some of the original data in the process; that is what is meant by "lossy" compression.
 
