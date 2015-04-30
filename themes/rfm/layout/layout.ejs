@@ -12,8 +12,14 @@
 	<meta charset='utf-8'>
 	<meta name='viewport' content="width=device-width, initial-scale=1">
 	<%- css('css/style.css') %>
+	<% if(page.css) { %>
+	<%- css(page.css) %>
+	<% } %>
 </head>
 <body>
 	<%- body %>
+	<% if (page && page.js) { %>
+	<%- js(page.js) %>
+	<% } %>
 </body>
 </html>
