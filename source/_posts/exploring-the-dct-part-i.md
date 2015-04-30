@@ -1,5 +1,10 @@
 title: Exploring the Discrete Cosine Transform
 date: 2015-04-28
+css:
+- css/exploring-the-dct-part-i.css
+js:
+- //cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js
+- js/exploring-the-dct-part-i.js
 ---
 A [discrete cosine transform (DCT)](http://en.wikipedia.org/wiki/Discrete_cosine_transform) expresses a finite sequence of data points in terms of a sum of cosine functions oscillating at different frequencies.
 
@@ -266,6 +271,3 @@ Let's explore deeper into the DCT:
 
 * [Discrete Cosine Transform](https://unix4lyfe.org/dct-1d/)
 * [What is 'energy compaction' in simple terms?](http://dsp.stackexchange.com/questions/17326/what-is-energy-compaction-in-simple-terms)
-
-<script src='//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-<script src='{% asset_path index.js.txt %}' type="text/javascript"></script>

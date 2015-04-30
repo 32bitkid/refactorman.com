@@ -1,0 +1,12 @@
+.signal-graph td, .signal-graph th {
+  text-align: center;
+}
+
+.signal-graph .axis path, .signal-graph .axis line {
+  fill: none;
+  stroke: black;
+}
+
+.signal-graph .axis .tick text {
+  font-size: 0.65rem;
+}
