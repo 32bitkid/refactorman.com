@@ -1,0 +1,25 @@
+.space-table table {
+	width: 100%;
+}
+
+.space-table tbody td:nth-child(3):empty::before {
+	content: "\2014";
+	font-style: italic;
+	opacity: 0.5;
+}
+
+/*
+.space-table tbody td:nth-child(5n)::before {
+	content: "-]";
+}
+
+.space-table tbody td:nth-child(5n)::after {
+	content: "[-";
+}
+*/
+
+.space-table tbody td:nth-child(1) span {
+	background-color: #6cf;
+	font-family: serif;
+	white-space: pre;
+}
