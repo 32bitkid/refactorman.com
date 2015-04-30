@@ -100,42 +100,31 @@ em { font-style: italic; }
   fill: @color-mix-20;
 }
 
-figure.image {
+figure.image p {
   text-align: center;
+  margin-right: 0;
 }
 
-.signal-graph {
-  table {
-    th, td { text-align: center; }
-    th {
-      color: @color-mix-80;
-      font-size: 0.7rem;
+
+table {
+  th {
+    color: @color-mix-80;
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  > tbody {
+    > tr > td {
       padding: 0 0.5rem;
+      font-size: 1rem;
     }
-    > thead th {
-      border-bottom: 1px solid @color-fore;
-    }
-    > tbody {
-      > tr > td {
-        padding: 0 0.5rem;
-        font-size: 1rem;
-      }
-      > tr:nth-child(3n) > * {
-        border-bottom: 1px dashed @color-fore;
-      }
+    > tr:nth-child(3n+1):not(:first-child) {
+      >td,>th { border-top: 1px dashed @color-fore; }
     }
   }
 
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: @color-fore;
-  }
-
-  .axis .tick text {
-    fill: @color-fore;
-    font-family: @font-serif;
-    font-size: 0.65rem;
+  thead + tbody > tr:first-child {
+    >td,>th { border-top: 1px solid @color-fore; }
   }
 }
 
