@@ -20,7 +20,23 @@ article {
   h6 { &:extend(.h6); }
 
   h1,h2,h3,h4,h5,h6,p,figure,ol,ul { margin-bottom: 1rem; }
-  hr { margin-top: 2rem; margin-bottom: 2rem; }
+  hr {
+    &:extend(.bigspace);
+    border: 0;
+    &::before, &::after {
+      content: "";
+      display: block;
+      border: 0.5rem solid transparent;
+    }
+    &::before {
+      border-top: 0;
+      border-bottom-color: @color-mix-20;
+    }
+    &::after {
+      border-bottom: 0;
+      border-top-color: @color-mix;
+    }
+  }
   li { line-height: 2rem; }
 
   p { text-align: justify; }
@@ -105,18 +121,20 @@ article {
     color: @color-back;
     margin-left: -50vw;
     padding-left: 50vw;
+    margin-bottom: 5rem;
   }
 
   h2 {
     position: relative;
     counter-increment: subsection;
+    &:extend(.bigspace);
 
     a[href^="#"] {
       &:hover { text-decoration: none; }
       color: @color-fore;
     }
 
-    a[href^="#"]::before {
+    a[href^="#"]:hover::before {
       font-weight: normal;
       content: "#";
       position: absolute;
@@ -125,4 +143,9 @@ article {
       padding-right: 0.5ch;
     }
   }
+}
+
+.bigspace {
+  margin-top:    5rem;
+  margin-bottom: 5rem;
 }
