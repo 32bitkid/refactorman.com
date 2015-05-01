@@ -2,6 +2,16 @@ article {
   counter-reset: figure citation;
   position: relative;
 
+  &::after {
+    font-family: @font-mono;
+    content: "\2403";
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    clear: right;
+    color: @color-mix-20;
+  }
+
   h1 { &:extend(.h1); }
   h2 { &:extend(.h2); }
   h3 { &:extend(.h3); }
