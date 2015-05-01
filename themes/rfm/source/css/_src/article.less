@@ -70,7 +70,7 @@ article {
       content: counter(citation);
     }
 
-    a[href]:not([href^='#'])::before, strong, figure > figcaption, .pull {
+    a[href]:not([href^='#'])::before, strong, figure > figcaption, .pull, p > aside {
       float: right;
       width: 9rem;
       margin-right: -10rem;
@@ -80,6 +80,17 @@ article {
       text-align: left;
       clear: right;
       line-height: 1.48;
+    }
+
+    > aside {
+      float: right;
+      width: 9rem;
+      p { margin-right: 0; }
+      font-size: 0.65rem;
+      word-wrap: break-word;
+      text-align: left;
+      clear: right;
+      margin-bottom: 1rem;
     }
 
     a[href]:not([href^='#'])::before {
