@@ -1,6 +1,6 @@
 title: Typographic Unicode
 css:
-- ./whitespace
+- /css/typographic-unicode
 ----
 
 Often, I find myself overlooking typography when writing content in HTML. It's even harder, sometimes, when dealing with CSS. Here is a quick reference some common typographical characters, and how to express them in HTML and CSS.
