@@ -7,8 +7,7 @@ updated: "Nov 1, 2014"
 Have you ever been curious how delegated events _work_ in JavaScript? How they can be implemented? Let's take a look...
 
 <!-- more -->
-
----
+***
 
 While I ended up using a CSS-only implementation for [this pen](http://codepen.io/32bitkid/pen/qJEoC), I started by writing it mostly using classes and JavaScript.
 

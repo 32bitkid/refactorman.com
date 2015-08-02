@@ -1,19 +1,40 @@
-title: Typographic Features of HTML and CSS
+title: Typographic Unicode
 css:
-- css/whitespace.css
+- ./whitespace
 ----
+
+Often, I find myself overlooking typography when writing content in HTML. It's even harder, sometimes, when dealing with CSS. Here is a quick reference some common typographical characters, and how to express them in HTML and CSS.
 
 <!-- more -->
 
+## Using in HTML
+
+```html
+<h1>Section:&x2003;Introduction</h1>
+```
+
+## Using in CSS
+
+```css
+h1::before {
+  content: "Section:\2003"
+}
+```
+
 ## Whitespaces
+
+First, it's easy to forget that whitespace can be more expressive than the standard space character you get when pressing the <key>Space Bar</key>. Let's look closer at some common whitespace characters.
 
 {% figure Common HTML Whitespace class:space-table %}
 || HTML Number | HTML Name | CSS
 |-:|:-:|:-:|:-:
-| <span>&#x0009;</span>Tab | `&#x0009;` | `&tab;` | `\0009`
-| Non&#x2011;breaking<span>&nbsp;</span>Space | `&#x00A0;` | `&nbsp;` | `\00A0`
 | Regular<span>&#x0020;</span>Space | `&#x0020;` | | `\0020`
+| Non&#x2011;breaking<span>&nbsp;</span>Space | `&#x00A0;` | `&nbsp;` | `\00A0`
+| Figure<span>&#x2007;</span>Space | `&#x2007;` | | `\2007`
+| <span>&#x0009;</span>Tab | `&#x0009;` | `&tab;` | `\0009`
 {% endfigure %}
+
+Now, for some more uncommon whitespace:
 
 {% figure Less Common HTML Whitespace class:space-table %}
 || HTML Number  | HTML Name | CSS

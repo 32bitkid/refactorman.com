@@ -9,12 +9,12 @@
 </header>
 <ol class="post-list">
 <% page.posts.each(function(post){ %>
-	<li>
-		<div class="summary">
-			<%- link_to(post.path, post.title) %>
+	<li class="post-item">
+		<time class="post-when" datetime='<%= date_xml(post.date) %>'><%= date(post.date) %></time>
+		<%- link_to(post.path, post.title, {'class': "post-title"}) %>
+		<div class="post-summary">
 			<%- post.excerpt %>
 		</div>
-		<time datetime='<%= date_xml(post.date) %>'><%= date(post.date) %></time>
 	</li>
 <% }) %>
 </ol>

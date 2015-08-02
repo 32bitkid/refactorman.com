@@ -13,11 +13,11 @@
 @highlight-purple: #cc99cc;
 
 
-article code { font-family: @font-mono; }
+code { font-family: @font-mono; }
 
 article > .highlight {
-  @font-size: 0.85rem;
-  @line-height-abs: @font-size * 1.48;
+  @font-size: 0.7rem;
+  @line-height-abs: @font-size * 1.8;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   background-color: @highlight-background;
@@ -29,6 +29,8 @@ article > .highlight {
     table-layout: fixed;
     width: 100%;
   }
+
+  > table > tbody > tr > td { font-size: inherit; }
 
   pre {
     font-family: @font-mono;
@@ -50,7 +52,7 @@ article > .highlight {
   }
 }
 
-pre {
+.highlight pre {
   .comment,
   .title
     { color: @highlight-comment; }
@@ -99,4 +101,37 @@ pre {
   .keyword,
   .javascript .function
     { color: @highlight-purple; }
+}
+
+.post-summary > .highlight {
+  @font-size: 0.6rem;
+  @line-height-abs: @font-size * 1.48;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  > figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.65rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: @color-mix;
+    //border-bottom: 1px solid @color-mix;
+    width: 66%;
+    margin-left: auto; margin-right: auto;
+  }
+
+  pre {
+    font-family: @font-mono;
+  }
+
+  > table {
+    font-size: @font-size;
+    line-height: @line-height-abs;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .gutter { display: none; }
+  .code { overflow: auto; }
 }

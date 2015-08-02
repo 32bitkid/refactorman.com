@@ -31,11 +31,11 @@
 .h1,.h2,.h3,.h4,.h5,.h6 {
   font-family: @font-sans;
 }
-.h1,.h2,.h3,.h4,.h5,.h6 { font-weight: bold; }
+.h1,.h2,.h3,.h4,.h5,.h6 { font-weight: bold;  }
 .h1 { font-size: 3rem; }
-.h2 { font-size: 2rem; text-align: center; }
-.h3 { font-size: 1.5rem; text-align: center; }
-.h4 { font-size: 1rem; text-align: center; }
+.h2 { font-size: 2rem; }
+.h3 { font-size: 1.5rem; }
+.h4 { font-size: 1rem; }
 
 body {
   padding: 0 1rem;
@@ -66,23 +66,28 @@ em { font-style: italic; }
 }
 
 .post-list {
-  > li {
+  > .post-item {
     box-sizing: border-box;
     padding: 1rem;
-    min-height: 20vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
+    min-height: 6rem;
     border: 1px solid @color-mix-20;
     margin-bottom: 1rem;
   }
-  a { &:extend(.h3); }
-  p { margin-right: 1rem; }
 
-  time {
-    flex-grow: 1;
-    text-align: right;
+  .post-title {
+    display: block;
+    &:extend(.h3);
+    text-align: left;
+  }
+
+  .post-summary {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .48rem;
+  }
+
+  .post-when {
+    float: right;
     font-size: 0.7rem;
     font-family: @font-sans;
   }
@@ -109,6 +114,7 @@ figure.image p {
 
 
 table {
+  margin-left: auto; margin-right: auto;
   th {
     color: @color-mix-80;
     font-size: 0.85rem;
@@ -118,7 +124,7 @@ table {
   > tbody {
     > tr > td {
       padding: 0 0.5rem;
-      font-size: 1rem;
+      font-size: inherit;
     }
     > tr:nth-child(3n+1):not(:first-child) {
       >td,>th { border-top: 1px dashed @color-fore; }
