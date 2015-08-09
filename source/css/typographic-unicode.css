@@ -1,4 +1,4 @@
-.space-table tbody td:nth-child(3):empty::before {
+.space-table tbody td:nth-child(n+2):empty::before {
 	content: "\2014";
 	font-style: italic;
 	opacity: 0.5;
