@@ -1,6 +1,7 @@
 title: "Understanding Delegated JavaScript Events"
 date: 2014-10-20 00:00:00
 tags:
+  -js
 updated: "Nov 1, 2014"
 ---
 

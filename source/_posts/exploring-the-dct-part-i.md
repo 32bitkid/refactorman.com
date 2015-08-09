@@ -1,5 +1,8 @@
 title: Exploring the Discrete Cosine Transform
 date: 2015-04-28
+tags:
+  - js
+  - dct
 css:
 - /css/exploring-the-dct-part-i
 js:
@@ -202,7 +205,7 @@ If our initial signal was comprised of white noise, i.e. static, there would be 
 
 ***
 
-We use can [quantization](http://en.wikipedia.org/wiki/Quantization_(image_processing) to squash our coefficients, which are currently real numbers, into a smaller range of integers. As a simplistic implementation, we can divide each coefficient by `50` and truncate the result. **The choice of `50` is a completely arbitrary selection on my part, it can be any number really for our purposes.**
+We use can [quantization](http://en.wikipedia.org/wiki/Quantization_(image_processing) to squash our coefficients, which are currently real numbers, into a smaller range of integers. As a simplistic implementation, we can divide each coefficient by `50` <q class="aside">the choice of `50` is a completely arbitrary selection on my part, it can be any number really for our purposes</q> and truncate the result.
 
 ```js
 var quantized = coefficients.map(function(v) { return v/50|0; });
