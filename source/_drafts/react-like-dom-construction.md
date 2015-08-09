@@ -59,7 +59,7 @@ Mostly, I've used this when I need to quickly generate some dynamic DOM where a 
 
 I've used this little function in a few [CodePen](http://codepen.io) prototypes and sketches. Most recently, I've used it for defining [Knockout Components](http://knockoutjs.com/documentation/component-registration.html). <q class='aside'>`Ko` component templates can be document fragments or array of DOM nodes.</q> It's worked pretty smoothly so far; but will eventually be replaced with a proper templating engine.
 
-Lastly, sometimes `string` concatting and finally injecting/parsing -- like [Handlebars](http://handlebarsjs.com/) -- feels a little obtuse for the type of transformations I want to do.
+Lastly, sometimes `string` concatting and finally injecting/parsing--like [Handlebars](http://handlebarsjs.com/)--feels a little obtuse for the type of transformations I want to do.
 
 ## Enhancements
 
