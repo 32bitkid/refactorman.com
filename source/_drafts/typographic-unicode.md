@@ -7,25 +7,11 @@ Often, I find myself overlooking typography when writing content in HTML. It's e
 
 <!-- more -->
 
-## Using in HTML
-
-```html
-<h1>Section:&x2003;Introduction</h1>
-```
-
-## Using in CSS
-
-```css
-h1::before {
-  content: "Section:\2003"
-}
-```
-
 ## Whitespaces
 
-First, it's easy to forget that whitespace can be more expressive than the standard space character you get when pressing the <key>Space Bar</key>. Let's look closer at some common whitespace characters.
+First, it's easy to forget that whitespace can be more expressive than the standard space character you get when pressing the <kbd>Space Bar</kbd>. Let's look closer at some common whitespace characters.
 
-{% figure Common HTML Whitespace class:space-table %}
+{% figure Common HTML Whitespace class:space-table class:text-table %}
 || HTML Number | HTML Name | CSS
 |-:|:-:|:-:|:-:
 | Regular<span>&#x0020;</span>Space | `&#x0020;` | | `\0020`
@@ -34,9 +20,9 @@ First, it's easy to forget that whitespace can be more expressive than the stand
 | <span>&#x0009;</span>Tab | `&#x0009;` | `&tab;` | `\0009`
 {% endfigure %}
 
-Now, for some more uncommon whitespace:
+But, that's not all! There are a *whole range* of typographical spaces that can, and should, be used in specific circumstances.
 
-{% figure Less Common HTML Whitespace class:space-table %}
+{% figure Less Common HTML Whitespace class:space-table class:text-table %}
 || HTML Number  | HTML Name | CSS
 |-:|:-:|:-:|:-:
 | Em<span>&#x2003;</span>Space | `&#x2003;` | `&emsp;` | `\2003`
