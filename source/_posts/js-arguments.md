@@ -1,11 +1,14 @@
 title: The magical world of the JavaScript arguments object
-date: Nov 29, 2013
 tags:
   - js
+date: 2013-11-29 00:00:00
 ---
+
 
 So, I've known for a long time that the `arguments` object that is available in a function is
 a bit "odd", but until recently I didn't realize how odd.
+
+<!-- more -->
 
 Last weekend, I was up in the northeast visiting friends and taking a little break from
 the south. As I waited at the airport for my flight home, I was browsing [Hacker News](http://news.ycombinator.com)
