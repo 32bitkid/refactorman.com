@@ -3,6 +3,9 @@ css:
   - /css/typographic-unicode
 date: 2015-08-09 13:55:45
 tags:
+  - typography
+  - css
+  - html
 ---
 
 
