@@ -26,22 +26,17 @@ article {
     border: 0;
     width: 65%;
     margin-left: auto; margin-right: auto;
+    height: 5px;
+    //border-radius: 50%;
+    background-image:
+      radial-gradient(circle, fade(@color-back,0%), @color-back),
+      linear-gradient(0deg, @color-accent 1px, fade(@color-accent,0%) 1px);
 
-    &::before, &::after {
-      content: "";
-      display: block;
-      border: 0.15rem solid transparent;
-    }
-
-    &::before {
-      border-top: 0;
-      border-bottom-color: @color-mix-20;
-    }
-    &::after {
-      border-bottom: 0;
-      border-top-color: @color-mix;
-    }
+    background-size: 100% 1px, 2px 2px;
+    background-repeat: no-repeat, repeat;
+    background-position: center center, bottom center;
   }
+
   li { line-height: 2rem; }
 
   p { text-align: justify; }
