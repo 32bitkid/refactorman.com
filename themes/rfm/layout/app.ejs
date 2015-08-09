@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  <% if (page.title) { %>
+  <%= page.title %> &mdash; <%= config.title %>
+  <% } else { %>
+  <%= config.title %> &mdash; <%= config.subtitle %>
+  <% } %>
+  </title>
+  <link rel="icon" href="http://refactorman.com/favicon.ico">
+  <meta charset='utf-8'>
+  <meta name='viewport' content="width=device-width, initial-scale=1">
+  <%- css('css/style.css') %>
+  <%- page_css() %>
+</head>
+<body class="app">
+  <%- page.content %>
+  <%- page_js() %>
+</body>
+</html>
