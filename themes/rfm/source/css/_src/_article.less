@@ -61,11 +61,14 @@ article {
   ol, ul { padding-left: 2rem; }
   ul { list-style-type: disc; }
 
+  @sidebar-width: 9rem;
+  @gutter-width: 2rem;
+
   @media screen and (min-width: 768px) {
 
     h1,h2,h3,h4,h5,h6,figure,hr { clear: right; }
 
-    p,figure,ul,ol { margin-right: 10rem; }
+    p,figure,ul,ol { margin-right: @sidebar-width + @gutter-width; }
     blockquote { color: @color-mix; }
 
     a[href]:not([href^='#']) { counter-increment: citation; }
@@ -75,10 +78,10 @@ article {
       content: counter(citation);
     }
 
-    a[href]:not([href^='#'])::before, strong, figure > figcaption, .pull, p > aside {
+    a[href]:not([href^='#'])::before, figure > figcaption, .pull, p > .aside {
       float: right;
-      width: 9rem;
-      margin-right: -10rem;
+      width: @sidebar-width;
+      margin-right: -@sidebar-width - @gutter-width;
       word-wrap: break-word;
       font-size: 0.65rem;
       margin-bottom: 1rem;
@@ -89,7 +92,8 @@ article {
 
     > aside {
       float: right;
-      width: 9rem;
+      width: @sidebar-width;
+      margin-right: -@sidebar-width - @gutter-width;
       p { margin-right: 0; }
       font-size: 0.65rem;
       word-wrap: break-word;
@@ -108,25 +112,43 @@ article {
     }
   }
 
+  @media screen and (min-width: 1280px) {
+    p,figure,ul,ol { margin-right: 0; }
+    a[href]:not([href^='#'])::before, figure > figcaption, .pull, p > .aside, > aside {
+      opacity: 0.15;
+      transition: opacity 0.5s;
+    }
+
+    *:hover > {
+      a[href]:not([href^='#'])::before, > figcaption, .pull, p > .aside {
+        opacity: 1;
+      }
+    }
+
+    aside:hover {
+      opacity: 1;
+    }
+  }
+
   @media screen and (max-width: 767px) {
 
     h1 { font-size: 8vw; }
     h2 { font-size: 6vw; }
 
     figure > figcaption {
-      text-align: center;
+      text-align: right;
       font-style: italic;
-      font-size: 0.65rem;
-      padding-bottom: 0.5rem;
+      font-size: 0.8rem;
+      padding-right: 1rem;
       padding-top: 0.5rem;
-      margin-bottom: 0.5rem;
-      background-color: @color-mix-80;
-      color: @color-mix-20;
-      width: 66%;
+      color: @color-mix;
       margin-left: auto; margin-right: auto;
     }
 
     figure > table { margin-left: auto; margin-right: auto; }
+
+    p>q::before, p>q::after { content: '\2014'; }
+    p>q:-moz-last-node::after { content: none; }
   }
 
   img { max-width: 100%; }
@@ -144,6 +166,7 @@ article {
 
   h1 + p {
     text-indent: 4ch;
+    > * { text-indent: 0; }
   }
 
   h2 {
@@ -169,4 +192,14 @@ article {
 .bigspace {
   margin-top:    1.48rem * 3;
   margin-bottom: 1.48rem * 1;
+}
+
+figure.text-table > table {
+  > tbody, > thead, > tfoot {
+    > tr {
+      > td, > th {
+        padding: 0.125rem 1rem;
+      }
+    }
+  }
 }
