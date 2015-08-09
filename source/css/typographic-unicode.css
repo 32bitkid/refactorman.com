@@ -1,5 +1,3 @@
-.space-table td { padding: 0 2ch; }
-
 .space-table tbody td:nth-child(3):empty::before {
 	content: "\2014";
 	font-style: italic;
