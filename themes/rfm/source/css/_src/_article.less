@@ -71,6 +71,8 @@ article {
     p,figure,ul,ol { margin-right: @sidebar-width + @gutter-width; }
     blockquote { color: @color-mix; }
 
+    q.aside { &::before, &::after { content: none; } }
+
     a[href]:not([href^='#']) { counter-increment: citation; }
     a[href]:not([href^='#'])::after {
       font-size: 0.65rem;
@@ -120,7 +122,7 @@ article {
     }
 
     *:hover > {
-      a[href]:not([href^='#'])::before, > figcaption, .pull, p > .aside {
+      a[href]:not([href^='#'])::before, > figcaption, .pull, > .aside {
         opacity: 1;
       }
     }

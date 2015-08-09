@@ -153,7 +153,7 @@ kbd {
   display: inline-block;
   min-width: 1rem;
   padding: 0.3rem 0.5rem;
-  font: normal normal 0.75rem/1 Montserrat, sans-serif;
+  font: normal normal 0.75rem/1 @font-sans;
   text-align: center;
   text-decoration: none;
   border-radius: 0.25rem;
@@ -168,6 +168,10 @@ kbd {
   color: #555;
   box-shadow: 0 2px 4px fade(black, 10%);
 }
+
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+q::before { content: open-quote; }
+q::after { content: close-quote; }
 
 @import "_highlight.less";
 @import "_article.less";
