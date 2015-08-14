@@ -1,0 +1,111 @@
+:root {
+  font-family: @font-serif;
+  font-size: 12pt;
+  line-height: 1.48;
+  color: @color-fore;
+  background-color: @color-back;
+
+  @media screen and (max-width: 767px) {
+    font-size: 10.5pt;
+  }
+}
+
+.h1,.h2,.h3,.h4,.h5,.h6 { font-family: @font-sans; }
+.h1,.h2,.h3,.h4,.h5,.h6 { font-weight: bold;  }
+.h1 { font-size: 3rem; }
+.h2 { font-size: 2rem; }
+.h3 { font-size: 1.5rem; }
+.h4 { font-size: 1rem; }
+
+body {
+  padding: 0 1rem;
+  max-width: 95ch;
+  margin: 1rem auto;
+}
+
+.emphasis, em { font-style: italic; }
+
+table {
+  margin-left: auto; margin-right: auto;
+
+  th {
+    color: @color-mix-80;
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+
+  > tbody {
+    > tr > td {
+      padding: 0 0.5rem;
+      font-size: inherit;
+    }
+    > tr:nth-child(3n+1):not(:first-child) {
+      >td,>th { border-top: 1px dashed @color-fore; }
+    }
+  }
+
+  thead + tbody > tr:first-child {
+    >td,>th { border-top: 1px solid @color-fore; }
+  }
+}
+
+.kbd, kbd {
+  display: inline;
+  display: inline-block;
+  min-width: 1rem;
+  padding: 0.3rem 0.5rem;
+  font: normal normal 0.75rem/1 @font-sans;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  cursor: default;
+  user-select: none;
+
+  background: #ddd linear-gradient(0deg, #ccc, transparent, #eee);
+  text-shadow: 0 0 4px fade(white, 60%);
+  border: 1px solid transparent;
+  border-top-color: fade(white, 50%);
+  border-bottom-color: fade(black, 30%);
+  color: #555;
+  box-shadow: 0 2px 4px fade(black, 10%);
+}
+
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+q::before { content: open-quote; }
+q::after { content: close-quote; }
+
+.del, del {
+  color: fade(red, 20%);
+  background: transparent
+    linear-gradient(0deg, fade(red,15%) 3px,  fade(red,0%) 3px);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: center center;
+}
+
+.ins, ins {
+  text-decoration: none;
+  font-style: italic;
+  border-bottom: 1px dashed fade(#00940b,60%);
+  background: transparent
+    linear-gradient(0deg, fade(#00940b,20%) 2px,  fade(#00940b,0%) 2px);
+  background-position: bottom center;
+}
+
+.sic::after {
+  opacity: 0.25;
+  content: '\2009[sic]';
+}
+
+.front-matter {
+  font-family: @font-sans;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  font-size: 0.7rem;
+  > * { flex-grow: 1; flex-basis: 0; text-align: center; }
+  > :first-child { text-align: left; }
+  > :last-child { text-align: right; }
+  .title { font-weight: bold; }
+}
+

@@ -1,0 +1,67 @@
+body.app {
+  padding: 0;
+  margin: 0;
+  max-width: auto;
+}
+
+:link, :visited {
+  color: @color-accent;
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: underline;
+    outline: 0;
+  }
+}
+
+.post-list {
+  > .post-item {
+    box-sizing: border-box;
+    padding: 1rem;
+    min-height: 6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #eee;
+    box-shadow: 0 0 3rem -1.5rem @color-mix-20;
+    transition: box-shadow 500ms ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0.25rem 0.5rem 0 #eee;
+    }
+  }
+
+  .post-title {
+    display: block;
+    &:extend(.h3);
+    text-align: left;
+  }
+
+  .post-summary {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .48rem;
+  }
+
+  .post-when {
+    float: right;
+    font-size: 0.7rem;
+    font-family: @font-sans;
+  }
+}
+
+#refactorman-logo { width: 100%; height: 100px; font-family: @font-sans; }
+#refactorman-logo #title {
+  fill: @color-fore;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: -3pt;
+}
+
+#refactorman-logo #author {
+  fill: @color-fore;
+  font-size: 32px;
+  fill: @color-mix-20;
+}
+
+figure.image p {
+  text-align: center;
+  margin-right: 0;
+}

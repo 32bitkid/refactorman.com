@@ -1,31 +1,15 @@
 // https://github.com/chriskempson/tomorrow-theme
-@highlight-background: #2d2d2d;
-@highlight-current-line: #393939;
-@highlight-selection: #515151;
-@highlight-foreground: #cccccc;
-@highlight-comment: #999999;
-@highlight-red: #f2777a;
-@highlight-orange: #f99157;
-@highlight-yellow: #ffcc66;
-@highlight-green: #99cc99;
-@highlight-aqua: #66cccc;
-@highlight-blue: #6699cc;
-@highlight-purple: #cc99cc;
-
-
 code { font-family: @font-mono; }
 
 article > .highlight {
-  @font-size: 0.7rem;
-  @line-height-abs: @font-size * 1.8;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   background-color: @highlight-background;
 
 
   > table {
-    font-size: @font-size;
-    line-height: @line-height-abs;
+    font-size: @highlight-font-size;
+    line-height: @highlight-line-height-calc;
     table-layout: fixed;
     width: 100%;
   }
@@ -104,8 +88,7 @@ article > .highlight {
 }
 
 .post-summary > .highlight {
-  @font-size: 0.6rem;
-  @line-height-abs: @font-size * 1.48;
+
   padding-left: 1rem;
   padding-right: 1rem;
 
@@ -126,8 +109,8 @@ article > .highlight {
   }
 
   > table {
-    font-size: @font-size;
-    line-height: @line-height-abs;
+    font-size: @highlight-font-size-sm;
+    line-height: @highlight-line-height-sm-calc;
     table-layout: fixed;
     width: 100%;
   }
