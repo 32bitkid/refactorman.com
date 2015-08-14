@@ -3,9 +3,9 @@
 <head>
 	<title>
 	<% if (page.title) { %>
-	<%= page.title %> &mdash; <%= config.title %>
+	<%= page.title %>&thinsp;&mdash;&thinsp;<%= config.title %>
 	<% } else { %>
-	<%= config.title %> &mdash; <%= config.subtitle %>
+	<%= config.subtitle %>&thinsp;&mdash;&thinsp;<%= config.title %>
 	<% } %>
 	</title>
 	<link rel="icon" href="http://refactorman.com/favicon.ico">
