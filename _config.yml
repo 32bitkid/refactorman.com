@@ -82,3 +82,7 @@ marked:
   breaks: false
   smartLists: true
   smartypants: true
+
+feed:
+  type: rss2
+  limit: 20
