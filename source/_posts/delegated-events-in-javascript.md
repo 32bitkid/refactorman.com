@@ -3,6 +3,7 @@ date: 2014-10-20 00:00:00
 tags:
   -js
 updated: "Nov 1, 2014"
+comments: false
 ---
 
 Have you ever been curious how delegated events _work_ in JavaScript? How they can be implemented? Let's take a look...

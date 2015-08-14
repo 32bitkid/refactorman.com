@@ -8,6 +8,7 @@ css:
 js:
 - //cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js
 - /js/exploring-the-dct-part-i
+comments: false
 ---
 A [discrete cosine transform (DCT)](http://en.wikipedia.org/wiki/Discrete_cosine_transform) expresses a finite sequence of data points in terms of a sum of cosine functions oscillating at different frequencies.
 

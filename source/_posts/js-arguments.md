@@ -2,6 +2,7 @@ title: The magical world of the JavaScript arguments object
 tags:
   - js
 date: 2013-11-29 00:00:00
+comments: false
 ---
 
 

@@ -2,6 +2,7 @@ title: Fun with pseudo-elements
 tags:
   - css
 date: 2013-10-29 00:00:00
+comments: false
 ---
 
 

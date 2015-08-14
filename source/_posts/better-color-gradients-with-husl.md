@@ -2,6 +2,7 @@ title: Better Color Gradients with HUSL
 css:
   - /css/better-color-gradients-with-husl.css
 date: 2015-08-08 19:23:18
+comments: false
 tags:
 - js
 - color
@@ -19,13 +20,11 @@ While it has been discussed [by others](http://www.stuartdenman.com/improved-col
 .el { background-image: linear-gradient(90deg, yellow, red); }
 {% endcode %}
 
-A simple gradient from yellow to red. Neat! However, this is what you get:
-
-{% figure A simple gradient from yellow to red. %}
+{% figure The resulting gradient rendered by your browser. %}
 <div class="gradient-example" id="simple-gradient"></div>
 {% endfigure %}
 
-And its all grape!
+A simple gradient from yellow to red. Neat! And it's all <span class="sic">grape!</span>
 
 ## Except...
 
@@ -42,7 +41,7 @@ Which looks a little like this:
 </div>
 {% endfigure %}
 
-This might *not* be what you expect. Depending on what you are doing, you might be asking yourself, <q>What's up with that weird looking color in the middle!?</q>
+This might *not* be what you expect. Depending on what you are doing, you might be asking yourself, <q>What's up with that weird color in the middle?!</q>
 
 Let's take a closer look at the math that causes this.
 
@@ -59,7 +58,7 @@ First let's break down the colors
 | `blue` | `#0000FF` | 0 | 0 | 255 |
 {% endfigure %}
 
-And then we can define a simple linear tween:
+Then, we can define a simple linear tween:
 
 {% code lang:js  A simple linear tween generator %}
 function linearTween(start, stop) {
