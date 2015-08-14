@@ -30,7 +30,7 @@ Where:
 
 Implemented in JavaScript as:
 
-{% code A na&iuml;ve DCT implementation in JavaScript lang:js %}
+{% code lang:js A na&iuml;ve DCT implementation in JavaScript %}
 var dct = function(input) {
   var output = [], v, u, x, y, sum, val, au, av;
   for (v=0; v<8; v++) {
@@ -67,7 +67,7 @@ Where:
 
 Also implemented in JavaScript as:
 
-{% codeblock A na&iuml;ve iDCT implementation in JavaScript lang:js %}
+{% code lang:js A na&iuml;ve iDCT implementation in JavaScript %}
 var idct = function(input) {
   var output = [], v, u, x, y, sum, val, au, av;
   for (y=0; y<8; y++) {
@@ -90,7 +90,7 @@ var idct = function(input) {
   }
   return output;
 }
-{% endcodeblock %}
+{% endcode %}
 
 These JavaScript implementations are na&iuml;ve implementations, i.e. that are quite computationally expensive and unoptimized. They *are*, however, relatively easy to reason about.
 
@@ -123,7 +123,7 @@ Let's look at the formal definition of the forward and inverse one-dimensional D
 
 First, we can focus just on the forward DCT transformation. We can translate the forward equation into the following JavaScript:
 
-{% codeblock A na&iuml;ve implementation of a forward 1D DCT.  %}
+{% code lang:js A na&iuml;ve implementation of a forward 1D DCT.  %}
   var dct1d = function(signal) {
     var N = signal.length,
         output = [],
@@ -139,7 +139,7 @@ First, we can focus just on the forward DCT transformation. We can translate the
     }
     return output;
   };
-{% endcodeblock %}
+{% endcode %}
 
 This function will take an array of samples and return an array of *equal length* DCT coefficients. Now, we can use this function to transform our input signal. Something like:
 
@@ -158,7 +158,7 @@ Now that we have our set of coefficients, how do we transform it back into the o
 
 Again, we can express this in JavaScript as:
 
-{% codeblock A na&iuml;ve implementation of a inverse 1D DCT.  %}
+{% code lang:js A na&iuml;ve implementation of a inverse 1D DCT.  %}
   var idct1d = function(dct) {
     var N = dct.length,
         signal = [],
@@ -174,7 +174,7 @@ Again, we can express this in JavaScript as:
     }
     return signal;
   };
-{% endcodeblock %}
+{% endcode %}
 
 Let use it to reconstruct our signal:
 

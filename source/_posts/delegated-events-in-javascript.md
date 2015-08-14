@@ -172,7 +172,7 @@ Here is a full HTML example:
 
 Pretend the user clicks on `Button A`, then the event would travel like this like this:
 
-{% codeblock Crude illustration of the event life-cycle. %}
+{% code Crude illustration of the event life-cycle. %}
 START
 | #document  \
 | HTML        |
@@ -186,7 +186,7 @@ START
 | HTML        |
 v #document  /
 END
-{% endcodeblock %}
+{% endcode %}
 
 Notice that you can follow the path the event takes down to the element that received the click.
 
