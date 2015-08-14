@@ -88,7 +88,7 @@ Advanced stylists, pair the CSS property [`quotes`](https://developer.mozilla.or
 
 ## Math
 
-Best to avoid using a - when you really mean &minus;, and don't use an x when you mean &times;.
+Best to avoid using a &lsquo;-&rsquo; when you really mean &lsquo;&minus;&rsquo;, and don't use an &lsquo;x&rsquo; when you mean &lsquo;&times;&rsquo;.
 
 {% figure <q cite='https://en.wikipedia.org/wiki/Dexter%27s_Laboratory'>Ah, what a fine day for science!</q> class:space-table class:text-table %}
 || HTML Number  | HTML Name | CSS
