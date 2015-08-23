@@ -90,7 +90,6 @@ article.post {
     > aside {
       float: right;
       width: @sidebar-width;
-      margin-right: -@sidebar-width - @gutter-width;
       p { margin-right: 0; }
       font-size: 0.65rem;
       word-wrap: break-word;
@@ -114,6 +113,10 @@ article.post {
     a[href]:not([href^='#'])::before, figure > figcaption, .pull, p > .aside, > aside {
       opacity: 0.15;
       transition: opacity 0.5s;
+    }
+
+    > aside {
+      margin-right: -@sidebar-width - @gutter-width;
     }
 
     *:hover > {
