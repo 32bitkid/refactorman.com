@@ -78,7 +78,7 @@ green(0.5) | 0;  // 127
 blue(0.5)  | 0;  // 127
 {% endcode %}
 
-We get a nice middle gray. Yummy....
+We get a nice middle gray. Yummy...
 
 ## So, how can we fix it?
 
