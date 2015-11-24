@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.1.1"
   },
+  "scripts": {
+    "deploy": "hexo clean && hexo generate && rsync -aP --delete public/ kryat@refactorman.com:refactorman.com/public/"
+  },
   "dependencies": {
     "hexo": "^3.0.0",
     "hexo-autoprefixer": "0.0.1",
