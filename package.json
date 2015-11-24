@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "hexo": "^3.0.0",
-    "hexo-autoprefixer": "0.0.1",
-    "hexo-browsersync": "^0.1.0",
+    "hexo-autoprefixer": "^0.1.0",
+    "hexo-browsersync": "^0.2.0",
     "hexo-clean-css": "0.0.2",
     "hexo-deployer-rsync": "0.0.2",
     "hexo-generator-archive": "^0.1.0",
