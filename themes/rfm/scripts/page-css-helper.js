@@ -24,3 +24,9 @@ hexo.extend.helper.register('page_css', function() {
   if (!this.page || !this.page.css) return;
   return cssHelper.apply(this, this.page.css).join('\n');
 });
+
+hexo.extend.helper.register('page_css_add', function(p) {
+  if (!this.page) return;
+  if (!this.page.css) { this.page.css = []; }
+  if (this.page.css.indexOf(p) === -1) { this.page.css.push(p); }
+});
