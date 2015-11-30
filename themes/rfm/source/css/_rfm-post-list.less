@@ -1,0 +1,33 @@
+.rfm-post-list { }
+
+.rfm-post-list__item {
+  box-sizing: border-box;
+  padding: 1rem;
+  min-height: 6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #eee;
+  box-shadow: 0 0 3rem -1.5rem @color-mix-20;
+  transition: box-shadow 500ms ease-in-out;
+}
+
+.rfm-post-list__item--hover {
+  box-shadow: 0 0.25rem 0.5rem 0 #eee;
+}
+
+.rfm-post-list__title {
+  display: block;
+  &:extend(.rfm-h3);
+  text-align: left;
+}
+
+.rfm-post-list__summary {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: .48rem;
+}
+
+.rfm-post-list__when {
+  float: right;
+  font-size: 0.7rem;
+  font-family: @font-sans;
+}

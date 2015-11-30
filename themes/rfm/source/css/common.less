@@ -1,0 +1,24 @@
+@import (reference) "_variables.less";
+
+@import (inline) "_reset.css";
+@import url(http://fonts.googleapis.com/css?family=Cardo:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,800);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+:root {
+  font-family: @font-serif;
+  font-size: 12pt;
+  line-height: 1.48;
+  color: @color-fore;
+  background-color: @color-back;
+
+  @media screen and (max-width: 767px) {
+    font-size: 10.5pt;
+  }
+}
+
+body {
+  padding: 0 1rem;
+  max-width: 95ch;
+  margin: 1rem auto;
+}

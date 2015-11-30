@@ -1,0 +1,40 @@
+.rfm-table() {
+  &:extend(.rfm-table);
+
+  > thead > tr > th { &:extend(.rfm-table__header); }
+
+  > tbody {
+    > tr > td {
+      &:extend(.rfm-table__data);
+    }
+
+    > tr:nth-child(3n+1):not(:first-child) {
+      >td, >th {
+        &:extend(.rfm-table__separator);
+      }
+    }
+  }
+
+  thead + tbody > tr:first-child {
+    >td, >th { &:extend(.rfm-table__begin); }
+  }
+}
+
+.rfm-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rfm-table__header {
+  color: @color-mix-80;
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+}
+
+.rfm-table__data {
+  padding: 0 0.5rem;
+  font-size: inherit;
+}
+
+.rfm-table__begin { border-top: 1px solid @color-fore; }
+.rfm-table__separator { border-top: 1px dashed @color-fore; }

@@ -1,0 +1,25 @@
+@import (reference) "_variables.less";
+@import (reference) "_helpers.less";
+@import (reference) "_rfm-post-list.less";
+
+a { .rfm-link(); }
+
+#post-list:extend(.rfm-post-list) { }
+#post-list > li :extend(.rfm-post-list__item) { }
+#post-list > li > time :extend(.rfm-post-list__when) { }
+#post-list > li > a :extend(.rfm-post-list__title) { }
+#post-list > li > a + div :extend(.rfm-post-list__summary) { }
+
+#refactorman-logo { width: 100%; height: 100px; font-family: @font-sans; }
+#refactorman-logo > .title {
+  fill: @color-fore;
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: -3pt;
+}
+
+#refactorman-logo > .author {
+  fill: @color-fore;
+  font-size: 32px;
+  fill: @color-mix-20;
+}

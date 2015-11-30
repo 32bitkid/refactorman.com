@@ -1,20 +1,19 @@
+<% page_css_add('css/index') %>
 <header>
 	<svg id="refactorman-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 		 viewBox="0 0 700 150">
-		<text id="title" x="50%" y="70%" text-anchor="middle"><%= config.title %></text>
-		<a xlink:href="mailto:jh@refactorman.com" rel='author'>
-			<text id="author" x="56%" y="90%" text-anchor="right"><%= config.author %></text>
+		<text class="title" x="50%" y="70%" text-anchor="middle"><%= config.title %></text>
+		<a xlink:href="mailto:jh@refactorman.com" rel='author' class="author">
+			<text x="56%" y="90%" text-anchor="right"><%= config.author %></text>
 		</a>
 	</svg>
 </header>
-<ol class="post-list">
-<% page.posts.each(function(post){ %>
-	<li class="post-item">
-		<time class="post-when" datetime='<%= date_xml(post.date) %>'><%= date(post.date) %></time>
-		<%- link_to(post.path, post.title, {'class': "post-title"}) %>
-		<div class="post-summary">
-			<%- post.excerpt %>
-		</div>
+<ol id="post-list">
+<% page.posts.each(function(post) { %>
+	<li>
+		<time datetime='<%= date_xml(post.date) %>'><%= date(post.date) %></time>
+		<%- link_to(post.path, post.title) %>
+		<div><%- post.excerpt %></div>
 	</li>
-<% }) %>
+<% }); %>
 </ol>

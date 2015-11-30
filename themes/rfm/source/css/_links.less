@@ -1,0 +1,18 @@
+.rfm-link() {
+  &:link, &:visited {
+    &:extend(.rfm-default-link);
+    &:hover, &:focus {
+      &:extend(.rfm-default-link--decorate);
+    }
+  }
+}
+
+.rfm-default-link {
+  color: @color-accent;
+  text-decoration: none;
+}
+
+.rfm-default-link--decorate {
+  text-decoration: underline;
+  outline: 0;
+}

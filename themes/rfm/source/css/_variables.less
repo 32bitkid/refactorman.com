@@ -1,7 +1,7 @@
 // Fonts
 
 @font-serif: Cardo, serif;
-@font-sans:  Montserrat, sans-serif;
+@font-sans:  Raleway, sans-serif;
 @font-mono:  'Source Code Pro', monospace;
 
 // Colors
@@ -11,7 +11,7 @@
 @color-mix:  mix(@color-fore, @color-back);
 @color-mix-20:  mix(@color-fore, @color-back, 20%);
 @color-back: white;
-@color-accent: hsv(200, 60%, 64%);
+@color-accent: hsv(200, 40%, 64%);
 
 // Highlight
 
@@ -37,3 +37,28 @@
 // Math
 
 @phi: (1+sqrt(5))/2;
+
+@P1: 1;
+@m2: pow(2, (100 / 1200)); // => 1.059
+@M2: pow(2, (200 / 1200)); // => 1.122
+@m3: pow(2, (300 / 1200)); // => 1.189
+@M3: pow(2, (400 / 1200)); // => 1.26
+@P4: pow(2, (500 / 1200)); // => 1.335
+@A4: pow(2, (600 / 1200)); // => 1.414
+@d5: A4;
+@P5: pow(2, (700 / 1200)); // => 1.498
+@m6: pow(2, (800 / 1200)); // => 1.587
+@M6: pow(2, (900 / 1200)); // => 1.682
+@m7: pow(2, (1000 / 1200)); // => 1.782
+@M7: pow(2, (1100 / 1200)); // => 1.888
+@P8: pow(2, (1200 / 1200)); // => 2
+
+@ratio: @P4;
+
+@size-xxsm: @size-md / pow(@ratio, 3);
+@size-xsm: @size-md / pow(@ratio, 2);
+@size-sm: @size-md / pow(@ratio, 1);
+@size-md: 1rem;
+@size-lg: @size-md * pow(@ratio, 1);
+@size-xlg: @size-md * pow(@ratio, 2);
+@size-xxlg: @size-md * pow(@ratio, 3);
