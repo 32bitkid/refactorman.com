@@ -1,0 +1,110 @@
+@import (less) "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+@import (reference) "_helpers.less";
+@import (reference) "_variables.less";
+
+@media print { :root { font-size: 10pt; } }
+
+.resume__section {
+	margin-top: @size-xlg;
+	margin-bottom: @size-xlg;
+}
+
+.resume { position: relative; }
+
+h1:extend(.rfm-h1) {
+	margin-bottom: @size-xxlg;
+
+	@media screen {
+	  padding-top: 25vh;
+	  padding-bottom: @size-xxlg;
+	  background-color: @color-accent;
+	  color: @color-back;
+	  margin-left: -50vw;
+	  padding-left: 50vw;
+	  padding-right: @size-lg;
+	}
+}
+
+:link, :visited {
+	color: @color-fore;
+	text-decoration: none;
+	&:hover {
+		color: @color-accent;
+		text-decoration: underline;
+	}
+}
+
+aside { display: none; }
+
+.links:extend(.resume__section) {
+	columns: 2 auto;
+	line-height: 2;
+
+	@media screen and (max-width: 500px) { columns: 1; }
+}
+
+.links > *::before:extend(.fa, .fa-fw) {
+	color: @color-mix-80;
+	margin-right: 0.5ch;
+}
+.links > .email::before:extend(.fa-envelope:before) { }
+.links > .tel::before:extend(.fa-phone:before) { }
+.links > .blog::before:extend(.fa-book:before) { }
+.links > .github::before:extend(.fa-github:before) { }
+.links > .codepen::before:extend(.fa-codepen:before) { }
+.links > .stackoverflow::before:extend(.fa-stack-overflow:before) { }
+
+.summary:extend(.resume__section) { }
+
+.work-experience, .education, .teaching {
+	&:extend(.resume__section);
+	border-top: 1px dashed @color-mix-20;
+	> li:extend(.resume__section) { }
+}
+
+.company:extend(.rfm-h4) { }
+.title:extend(.rfm-h2) { }
+
+.time-span { margin-bottom: 1rem; }
+.time-span > .from::after { content: '\2013'; }
+
+.tech {
+	@media screen {
+		columns: 3 auto;
+	}
+	@media print {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	margin-left: 2ch;
+	margin-right: 2ch;
+	line-height: 2;
+}
+
+.tech > li {
+	font-size: @size-sm;
+	@media print  {
+		margin-left: 0.5rem;
+	}
+}
+
+
+.tech > li::before:extend(.fa, .fa-fw, .fa-code:before) {
+	color: @color-mix-80;
+	margin-right: 0.5ch;
+	@media print { content: none; }
+}
+
+.summary, .description, .notes {
+	em { font-style: italic; }
+	> p, > ul { margin-bottom: 1.10rem; }
+	> ul { padding-left: 2ch ; }
+}
+
+.school:extend(.rfm-h4) { }
+.program:extend(.rfm-h2) { }
+
+.work-experience .company::before:extend(.fa, .fa-at:before) { margin-right: 0.5ch; }
+.teaching .school::before:extend(.fa, .fa-child:before) { margin-right: 0.5ch; }
+.education .school::before:extend(.fa, .fa-certificate:before) { margin-right: 0.5ch; }
+
